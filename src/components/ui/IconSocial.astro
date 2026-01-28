@@ -1,0 +1,10 @@
+---
+interface IconSocialProps {
+  src: string;
+  alt: string;
+}
+
+const { src, alt} = Astro.props as IconSocialProps;
+---
+
+<img src={src} alt={alt} class=`size-10 shadow-lg z-10 object-contain hover:scale-110 transition-transform duration-300` />
