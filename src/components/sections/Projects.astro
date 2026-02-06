@@ -1,0 +1,88 @@
+---
+import Card from '../features/Card.astro';
+import ProyectBento from '../features/ProyectBento.astro';
+import Cloud from '../ui/style/cloud.astro';
+
+const {resume} = Astro.props
+
+const proyects = [
+	{
+		title: "Profile Builder - Generador de CVs",
+		description: "ProfileBuilder es una solución eficiente diseñada para transformar la creación de CVs en una experiencia ágil e intuitiva.",
+        status: "Completado",
+        tech: ["React", "Typescript" , "vite" ,"TailwindCSS", "lucide-react"],
+        image: "/src/assets/proyects/ProfileBuilder.png",
+		github: "https://github.com/christiancmd/ProfileBuilderProject",
+        demo: "/"
+	},
+	{
+		title: "Tradux - Plataforma de Traducción",
+		description: "Tradux es una aplicación web ligera para traducciones rápidas usando un servicio de IA en la nube (Gemini).",
+        status: "Completado",
+        tech: ["React", "Typescript", "Node js" ,"TailwindCSS", "Vite","Gemini"],
+        image : "/src/assets/proyects/Tradux.png",
+		github: "https://github.com/christiancmd/TraduxProject",
+        demo: "/"
+	},
+	{
+		title: "Simulación de Inventario de E-comerce",
+		description: "Inventario dinámico, sencillo e intuitivo. Aplicación construida con React ofrece una experiencia sencilla para listar, crear, editar, filtrar y descargar información de productos.",
+        status: "Completado",
+        tech: ["React", "Typescript", "Node js" ,"TailwindCSS", "Vite","Gemini"],
+        image : "/src/assets/proyects/Grocery.png",
+		github: "https://github.com/christiancmd/DollarTodo-app",
+        demo: "/"
+	},
+	{
+		title: "DollarTodo - Visualizador de Tasa del Dolar",
+		description: "Plataforma Web para la visualización y manejo de la tasa del dolar actual (BCV), que facilita las operaciones y el manejo de divisas en la vida cotidiana.",
+        status: "Desarrollo",
+        tech: ["React", "Typescript", "Node js" ,"TailwindCSS", "Vite","Gemini"],
+        image : "/src/assets/proyects/dollar.png",
+		github: "https://github.com/christiancmd/TraduxProject",
+        demo: "/"
+	}
+];
+
+---
+
+
+
+<section class="w-full min-h-screen flex flex-col items-center justify-center py-24 bg-slate-50 relative overflow-hidden">
+    {/* Elemento decorativo de fondo opcional (circulo difuminado) */}
+    <Cloud bgColor="bg-slate-300" location=" top-30 left-20"/>
+    <Cloud bgColor="bg-indigo-300 " location="bottom-20 right-20"/>
+
+
+    {/* Contenedor principal con ancho controlado */}
+    <div class="max-w-7xl mx-auto px-6 w-full z-10">
+        
+        {/* Cabecera de la sección */}
+        <div class="flex flex-col items-center text-center mb-20">
+            <span class="text-gray-600 font-semibold tracking-wider uppercase text-sm mb-3">Portafolio</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
+                Proyectos <span class="text-blue-600">Destacados</span>
+            </h2>
+            {/* Línea decorativa */}
+            <div class="h-1.5 w-24 bg-linear-to-r from-gray-600 to-blue-500 rounded-full mb-6"></div>
+            <p class="text-lg text-slate-600 max-w-2xl leading-relaxed">
+                {resume}.
+            </p>
+        </div>
+
+        {/* Grid de Proyectos con mejor espaciado */}
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full">
+            {proyects.map((project, index) => (
+                <Card 
+                    title={project.title} 
+                    description={project.description} 
+                    status={project.status} 
+                    tech={project.tech}
+                    image={project.image}
+                    github={project.github}
+                    demo={project.demo}
+                />
+            ))}
+        </div>
+    </div>
+</section>

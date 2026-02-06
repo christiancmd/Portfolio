@@ -3,15 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/sections/Hero.astro';
 import LinkSoccials from '../components/features/linkSoccials.astro';
+import Projects from '../components/sections/Projects.astro';
 import '../styles/global.css';
-
 
 ---
 
 <Layout>
 	<Header author="Christian Parisca"/>
-	<main class="flex flex-col gap-16 mx-auto my-16 px-4">
+	<main class="flex flex-col gap-16 mx-auto my-16">
 		<Hero author="Christian Parisca" paragraph="Desarrollador Full Stack"/>
 		<LinkSoccials />
+		<Projects resume = "Una Breve Selección de Desarrollos donde fusiono arquitectura escalable y buenas practicas para resolver problemas reales ó para enteder la logica de negocio en distintas areas"/>
 	</main>
 </Layout>
