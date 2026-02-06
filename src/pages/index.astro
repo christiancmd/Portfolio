@@ -4,15 +4,17 @@ import Header from '../components/Header.astro';
 import Hero from '../components/sections/Hero.astro';
 import LinkSoccials from '../components/features/linkSoccials.astro';
 import Projects from '../components/sections/Projects.astro';
+import About from '../components/sections/About.astro';
 import '../styles/global.css';
 
+const title = 'Portafolio'
 ---
 
-<Layout>
-	<Header author="Christian Parisca"/>
-	<main class="flex flex-col gap-16 mx-auto my-16">
+<Layout title={title}>
+	<main class="flex flex-col gap-16 mx-auto mt-16">
 		<Hero author="Christian Parisca" paragraph="Desarrollador Full Stack"/>
 		<LinkSoccials />
+		<About/>
 		<Projects resume = "Una Breve Selección de Desarrollos donde fusiono arquitectura escalable y buenas practicas para resolver problemas reales ó para enteder la logica de negocio en distintas areas"/>
 	</main>
 </Layout>
