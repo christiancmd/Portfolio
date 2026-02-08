@@ -1,4 +1,5 @@
 ---
+import Button from './ui/Button.astro';
 
 interface Props {
     author: string;
@@ -7,15 +8,44 @@ interface Props {
 const { author } = Astro.props;
 ---
 
-<header class="h-24 w-full flex items-center justify-between bg-white shadow-md px-8">
+<header class="fixed top-0 h-24 w-full flex items-center justify-between bg-white shadow-md px-8  z-50">
     <div>
-       <p> <span class="font-bold">{author}</span> / Maracay, Venezuela</p>
+       <p><span class="font-bold">{author}</span> / Maracay, Venezuela</p>
     </div>
-    <nav>
-        <ul class="flex gap-6 justify-center items-center">
-            <li><a href="/about">Sobre mí</a></li>
-            <li><a href="/projects">Proyectos</a></li>
-            <li><a href="/contact">Contacto</a></li>
+
+    <nav 
+        id="nav-menu" 
+        class="absolute top-full left-0 w-full bg-white shadow-lg py-8 flex-col items-center gap-6 hidden lg:flex lg:static lg:w-auto lg:shadow-none lg:flex-row lg:py-0 transition-all"
+    >
+        <ul class="flex flex-col lg:flex-row gap-6 justify-center items-center">
+            <li><a href="#about" class="hover:text-blue-600">Sobre mí</a></li>
+            <li><a href="#projects" class="hover:text-blue-600">Proyectos</a></li>
+            <li><a href="#tech" class="hover:text-blue-600">Tecnologías</a></li>
+            <li><a href="#contact" class="hover:text-blue-600">Contacto</a></li>
         </ul>
+        <div class="lg:hidden">
+            <Button text='Contáctame' color='text-white' bg='bg-gray-900'/>
+        </div>
     </nav>
+
+    <div class="hidden lg:block">
+        <Button text='Contáctame' color='text-white' bg='bg-gray-900'/>
+    </div>
+
+    <button id="menu-btn" class="lg:hidden p-2 text-gray-900 cursor-pointer" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+    </button>
 </header>
+
+<script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('nav-menu');
+
+    btn?.addEventListener('click', () => {
+        // 'hidden' oculta/muestra el menú, 'flex' lo fuerza a ser columna en móvil
+        menu?.classList.toggle('hidden');
+        menu?.classList.toggle('flex');
+    });
+</script>
