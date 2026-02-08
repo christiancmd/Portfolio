@@ -24,9 +24,11 @@ const technologies = [
 import Cloud from '../ui/style/cloud.astro';
 import IconTech from '../ui/IconTech.astro';
 import Button from '../ui/Button.astro';
+
+
 ---
 
-<section class="relative w-full min-h-[65vh] flex flex-col-reverse gap-28 justify-center items-center lg:flex-row py-12">
+<section class="relative w-full min-h-[75vh] flex flex-col-reverse gap-28 justify-center items-center lg:flex-row py-12 pt-24">
   
 
   <Cloud bgColor="bg-slate-900/15"  location=" top-0 left-20"/>
@@ -43,12 +45,14 @@ import Button from '../ui/Button.astro';
       ¡El desarrollo está en <span class="text-blue-600">nuestras manos</span>!
     </h2>
     
-    <p class="text-lg text-gray-600 leading-relaxed">
-      "Estudiante de <span class="font-bold text-gray-900">Ingeniería de Sistemas</span> de 8vo Semestre, mentalizado en la creación de herramientas y productos que cumplan con las necesidades del cliente; siempre apostando a las mejores prácticas."
+    <p class="text-lg lg:text-xl text-gray-600 leading-relaxed">
+      "Estudiante de <span class="font-bold text-gray-900">Ingeniería de Sistemas</span> de 8vo Semestre, enfocado en la creación de productos y herramientas que cumplan con los requerimientos de la empresa."
     </p>
     
     <div class="pt-2">
-      <Button text="Ver Proyectos" bg="bg-gray-900" color="text-white" />
+      <a href="#projects">
+        <Button text="Ver Proyectos" bg="bg-gray-900" color="text-white" />
+      </a>
     </div>
   </div>
 
