@@ -1,0 +1,27 @@
+---
+// FeatureCard.astro
+interface Props {
+  title: string;
+  description: string;
+  icon?: string,
+  iconBg: string;
+  iconColor?: string;
+}
+
+const { title, description, iconBg, iconColor, icon } = Astro.props;
+---
+
+<div class=" bg-gray-200 p-10 rounded-[2.5rem] shadow-sm flex flex-col gap-6 h-full border border-gray-50/50 transition-transform hover:-translate-y-1">
+  <div class={`w-14 h-14 ${iconBg} text-white rounded-2xl flex items-center justify-center`}>
+    <img src={icon} class="size-8 object-cover" alt="">
+  </div>
+
+  <div class="space-y-4">
+    <h3 class="text-[28px] font-bold text-[#1a1f36] leading-tight tracking-tight">
+      {title}
+    </h3>
+    <p class="text-[#697386] text-[17px] leading-relaxed font-medium">
+      {description}
+    </p>
+  </div>
+</div>

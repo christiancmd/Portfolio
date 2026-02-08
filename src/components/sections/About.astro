@@ -1,0 +1,58 @@
+---
+import FeatureCard from "../features/FeatureCard.astro"
+import Button from "../ui/Button.astro"
+
+const aiIcon = "/icon/brainAi.svg";
+const simulationIcon = "/icon/simulation.svg"
+const webIcon = "/icon/web.svg"
+
+const features = [
+
+	{
+		title: "Desarrollo Back-End",
+		description: "Desarrollo de APIs y servicios en Python, gestionando la lógica de negocio, la persistencia de datos y las integraciones que dan soporte a aplicaciones escalables.",
+		icon: simulationIcon,
+		bg: "bg-gray-900"
+	},
+	{
+		title: "Inteligencia Artificial",
+		description: "Implementación de modelos de Inteligencia Artificial en aplicaciones web para automatizar procesos y reducir tiempo de desarrollo.",
+		icon: aiIcon,
+		bg: "bg-gray-900"
+	},	{
+		title: "Desarrollo Front-End",
+		description: "Creación de interfaces de usuario intuitivas y accesibles utilizando React, Next.js y Typescript, con un fuerte enfoque en la usabilidad y una estructura de componentes.",
+		icon: webIcon,
+		bg: "bg-gray-900"
+	},
+]
+
+const {section, info} = Astro.props
+---
+
+<section id={"about"} class="relative w-full min-h-[65vh] flex flex-col gap-18 justify-center items-center py-12">
+
+    <div class="max-w-3xl text-center space-y-8">
+        <span class="block text-gray-600 font-semibold tracking-wider uppercase text-sm my-8">{section}</span>
+        <hgroup class="space-y-5"> 
+            <h3 class="font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-gray-900 leading-tight"><span class="text-blue-600">Christian</span> Parisca Herrera</h3>
+            <p class="text-lg lg:text-xl  text-slate-600">{info}</p>
+        
+        </hgroup>
+		
+		<a href="/cv/curriculum_Christian_Parisca.pdf"  download="curriculum_Christian_Parisca.pdf">
+			<Button text="Descargar CV" color="text-white" bg="bg-gray-900"/>
+		</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mx-auto px-4">
+    {features.map((feat) => (
+        <FeatureCard 
+            title={feat.title} 
+            description={feat.description} 
+            iconBg={feat.bg} 
+            icon={feat.icon}
+        />
+    ))}
+</div>
+</section>
