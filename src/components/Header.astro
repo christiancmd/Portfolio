@@ -18,18 +18,22 @@ const { author } = Astro.props;
         class="absolute top-full left-0 w-full bg-white shadow-lg py-8 flex-col items-center gap-6 hidden lg:flex lg:static lg:w-auto lg:shadow-none lg:flex-row lg:py-0 transition-all"
     >
         <ul class="flex flex-col lg:flex-row gap-6 justify-center items-center">
-            <li><a href="#about" class="hover:text-blue-600">Sobre mí</a></li>
-            <li><a href="#projects" class="hover:text-blue-600">Proyectos</a></li>
-            <li><a href="#tech" class="hover:text-blue-600">Tecnologías</a></li>
-            <li><a href="#contact" class="hover:text-blue-600">Contacto</a></li>
+            <li><a href="#about" class="hover:text-blue-600 hover:underline">Sobre mí</a></li>
+            <li><a href="#projects" class="hover:text-blue-600 hover:underline">Proyectos</a></li>
+            <li><a href="#tech" class="hover:text-blue-600 hover:underline">Tecnologías</a></li>
+            <li><a href="#contact" class="hover:text-blue-600 hover:underline">Contacto</a></li>
         </ul>
         <div class="lg:hidden">
-            <Button text='Contáctame' color='text-white' bg='bg-gray-900'/>
+            <a href="emailto:pariscachristian@gmail.com">
+                <Button text='Contáctame' color='text-white' bg='bg-gray-900'/>
+            </a>
         </div>
     </nav>
 
     <div class="hidden lg:block">
-        <Button text='Contáctame' color='text-white' bg='bg-gray-900'/>
+        <a href="emailto:pariscachristian@gmail.com">
+            <Button text='Contáctame' color='text-white' bg='bg-gray-900'/>
+        </a>    
     </div>
 
     <button id="menu-btn" class="lg:hidden p-2 text-gray-900 cursor-pointer" aria-label="Menu">
