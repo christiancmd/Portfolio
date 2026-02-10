@@ -13,13 +13,24 @@ export interface Project {
 }
 
 export async function getProjects(): Promise<Project[]> {
-  const { data, error } = await supabase.from("project").select(`
+  try {
+    const { data, error } = await supabase.from("project").select(`
     *,
     used_tech (
       tech (name)
     )
   `);
 
-  if (error) throw new Error(error.message);
-  return data || [];
+  if (error) {
+    console.error("Error al obtener proyectos:", error.message);
+    return [];
+  }
+
+  return data as Project[] || [];
+  } catch (error) {
+    
+    console.error("Error inesperado:", error);
+    return [];
+  }
+
 }
