@@ -1,0 +1,51 @@
+---
+import TechCard from "../features/TechCard.astro"
+import Cloud from "../ui/style/cloud.astro"
+
+const {section} = Astro.props
+
+const technologies = [
+    {
+        title: "Front-End",
+        side: "Client Side",
+        techs : ["HTML5", "CSS3", "JAVASCRIPT (E6S+)", "TYPESCRIPT", "TAILWDINDCSS", "REACT.JS", "ASTRO.JS", "VITE"]
+    },
+        {
+        title: "Base de Datos",
+        side: "Storage",
+        techs : ["POSTGRESQL", "SQLITE", "MYSQL", "SUPABASE"]
+    },
+        {
+        title: "Back-End",
+        side: "Server Side",
+        techs : ["NODE.JS", "PYTHON", "PHP", "DJANGO DRF"]
+    }, {
+        title: "Herramientas",
+        side: "Tools",
+        techs: ["POSTMAN", "THUNDER CLIENT", "GIT", "GITHUB", "DOCKER", "EXCALIDRAW", "VERCEL", "NPM", "PNPM", "LINUX", "EXCEL", "ASANA"]
+    }
+]
+---
+
+<section id="tech" class="relative w-full min-h-[65vh] flex flex-col justify-center items-center py-12 px-4 gap">
+
+    <Cloud bgColor="bg-slate-300  mix-blend-multiply"  location="top-30 right-20"/>
+    <Cloud bgColor="bg-slate-300  mix-blend-multiply"  location="top-30 left-30"/>
+    <Cloud bgColor="bg-slate-400 mix-blend-multiply" location="bottom-25 left-185"/>
+
+    <span class="block text-gray-600 font-semibold tracking-wider uppercase text-sm my-8">{section}</span>
+    <hgroup class="space-y-1 text-center"> 
+        <h3 class="font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-gray-900 leading-tight">Principal <span class="text-blue-600">Stack</span></h3>
+        
+        <p class="text-lg lg:text-xl text-slate-600">Herramientas o recursos que siempre me han apoyado en todo momento</p>    
+    </hgroup>
+
+   <div class="flex flex-wrap justify-center w-full mt-10 gap-6 lg:max-w-7xl">
+  {technologies.map((tech) => (
+    <div class="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-1.5rem)]">
+      <TechCard title={tech.title} side={tech.side} techs={tech.techs}/>
+    </div>
+  ))}
+</div>
+
+</section>
