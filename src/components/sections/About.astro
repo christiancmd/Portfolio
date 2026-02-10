@@ -30,13 +30,13 @@ const features = [
 const {section, info} = Astro.props
 ---
 
-<section id={"about"} class="relative w-full min-h-[65vh] flex flex-col gap-18 justify-center items-center py-12">
+<section id={"about"} class="relative w-full min-h-[65vh] flex flex-col gap-18 justify-center items-center py-12 ">
 
-    <div class="max-w-3xl text-center space-y-8">
+    <div class="max-w-3xl text-center space-y-8 px-6">
         <span class="block text-gray-600 font-semibold tracking-wider uppercase text-sm my-8">{section}</span>
-        <hgroup class="space-y-5"> 
+        <hgroup class="space-y-5 "> 
             <h3 class="font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-gray-900 leading-tight"><span class="text-blue-600">Christian</span> Parisca Herrera</h3>
-            <p class="text-lg lg:text-xl  text-slate-600">{info}</p>
+            <p class="text-[16px] md:text-lg lg:text-xl  text-slate-600">{info}</p>
         
         </hgroup>
 		

@@ -1,5 +1,6 @@
 ---
 import IconSocial from "../ui/IconSocial.astro";
+import Cloud from "../ui/style/cloud.astro";
 
 const instIcon = 'socials/instagram.svg';
 const gitIcon = 'socials/github.svg';
@@ -13,12 +14,21 @@ const socials = [
 ];
 ---
 
+<div class="w-full h-16 flex justify-center px-4">
 
-<div class=" w-full h-16 flex justify-center">
+   <Cloud 
+      bgColor="bg-indigo-950/15 mix-blend-multiply" 
+      location="-bottom-10 right-10"
+    />
 
-  <div class="w-2/6 lg:w-3/12 bg-gray-300 flex justify-center items-center gap-16 rounded-xl border-b-2 border-slate-600  shadow-2xl shadow-slate-700">
+  <div class="w-full max-w-75 md:max-w-md bg-gray-300 flex justify-center items-center gap-8 md:gap-12 lg:gap-16 rounded-xl border-b-2 border-slate-600 shadow-2xl shadow-slate-700 py-2">
     {socials.map(social => (
-      <a href={social.url} target="_blank" rel="noopener noreferrer">
+      <a 
+        href={social.url} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="transition-transform hover:scale-110 active:scale-95"
+      >
         <IconSocial
           src={social.icon}
           alt={social.name}

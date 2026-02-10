@@ -15,10 +15,10 @@ const technologies = [
   { name: 'AI', icon: aiIcon, pos: 'top-0 left-1/2 -translate-x-1/2 -translate-y-1/2' },
   { name: 'React', icon: reactIcon, pos: 'bottom-10 left-0' },
   { name: 'Next', icon: nextIcon, pos: 'top-10 right-0' },
-  { name: 'Python', icon: pythonIcon, pos: 'top-1/2 -left-10 -translate-y-1/2' },
-  { name: 'Tailwind', icon: tailwindIcon, pos: 'bottom-10 right-10' },
-  { name: 'Django', icon: djangoIcon, pos: 'top-10 left-10' },
-  { name: 'TypeScript', icon: typescriptIcon, pos: 'top-1/2 -right-8 -translate-y-1/2' },
+  { name: 'Python', icon: pythonIcon, pos: 'top-1/2 -left-8 lg:-left-10 -translate-y-1/2' },
+  { name: 'Tailwind', icon: tailwindIcon, pos: 'bottom-10 right-6 lg:right-10' },
+  { name: 'Django', icon: djangoIcon, pos: 'top-10 left-0 lg:left-10' },
+  { name: 'TypeScript', icon: typescriptIcon, pos: 'top-1/2 -right-6 lg:-right-8 -translate-y-1/2' },
 ];
 
 import Cloud from '../ui/style/cloud.astro';
@@ -27,48 +27,45 @@ import Button from '../ui/Button.astro';
 
 
 ---
-
-<section class="relative w-full min-h-[75vh] flex flex-col-reverse gap-28 justify-center items-center lg:flex-row py-12 pt-24">
+<section class="relative w-full min-h-[75vh] flex flex-col-reverse gap-28 justify-center items-center lg:flex-row py-12 pt-24 overflow-x-hidden">
   
-
-  <Cloud bgColor="bg-slate-900/15"  location=" top-0 left-20"/>
-  <Cloud bgColor="bg-indigo-950/15 mix-blend-multiply" location="bottom-0 right-20"/>
-
-  <!-- Nube Derecha (Tono Azul/Violeta oscuro) -->
-  <div class="absolute bottom-0 right-20 w-150 h-150 
-              bg-indigo-950/15 rounded-full blur-[120px] 
-              z-10 pointer-events-none mix-blend-multiply">
+<div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+    <Cloud 
+      bgColor="bg-slate-900/15" 
+      location="-top-10 -left-10 md:top-0 md:left-20"
+    />
+   
   </div>
 
-  <div class="space-y-6 text-left w-full max-w-xl px-6">
-    <h2 class="font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-gray-900 leading-tight">
+  <div class="space-y-6 text-center lg:text-left w-full max-w-xl ">
+    <h2 class="font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-tight text-gray-900 leading-tight px-8 md:px-4 lg:px-2">
       ¡El desarrollo está en <span class="text-blue-600">nuestras manos</span>!
     </h2>
     
-    <p class="text-lg lg:text-xl text-gray-600 leading-relaxed">
-      "Estudiante de <span class="font-bold text-gray-900">Ingeniería de Sistemas</span> de 8vo Semestre, enfocado en la creación de productos y herramientas que cumplan con los requerimientos de la empresa."
+    <p class="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed mx-auto px-8 lg:px-0">
+      Estudiante de <span class="font-bold text-gray-900">Ingeniería de Sistemas</span> de 8vo Semestre, enfocado en la creación de productos y herramientas que cumplan con los requerimientos de la empresa.
     </p>
     
-    <div class="pt-2 space-x-4">
-      <a href="#projects">
+    <div class="flex sm:flex-row justify-center lg:justify-start xl:gap-4 pt-4">
+      <a href="#projects" class="w-full sm:w-auto">
         <Button text="Ver Proyectos" bg="bg-gray-900" color="text-white" />
       </a>
 
-      <a href="/cv/curriculum_Christian_Parisca.pdf"  download="curriculum_Christian_Parisca.pdf">
-			  <Button text="Descargar CV" color="text-white" bg="bg-gray-900"/>
-		  </a>
+      <a href="/cv/curriculum_Christian_Parisca.pdf" download="curriculum_Christian_Parisca.pdf" class="w-full sm:w-auto">
+        <Button text="Descargar CV" color="text-white" bg="bg-gray-900"/>
+      </a>
     </div>
   </div>
 
-  <div class="relative mt-2 lg:mt-0">  
+  <div class="relative mt-8 lg:mt-0 scale-90 md:scale-100">  
     <div
       style={`background-image: url(${backgroundImage});`}
-      class="rounded-full p-20 lg:p-24 bg-cover bg-center border border-gray-100 shadow-inner relative"
+      class="rounded-full p-12 md:p-20 lg:p-24 bg-cover bg-center border border-gray-100 shadow-inner relative"
     >
       <img
         src={userImage}
         alt="Imagen de Christian Parisca"
-        class="size-56 lg:size-64 object-cover rounded-full border-4 border-white shadow-2xl bg-linear-to-tr from-blue-500 via-white to-blue-600 relative z-20"
+        class="size-48 md:size-56 lg:size-64 object-cover rounded-full border-4 border-white shadow-2xl bg-linear-to-tr from-blue-500 via-white to-blue-600 relative z-20"
       />
 
       {technologies.map(tech => (
@@ -78,14 +75,12 @@ import Button from '../ui/Button.astro';
           style={tech.pos} 
         />
       ))}
-
     </div>
 
-    <div class="absolute -bottom-14 left-1/2 transform -translate-x-1/2 w-72 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl shadow-blue-900/10 border border-white z-30 text-center">
-      <h3 class="text-xl font-bold text-gray-900">Christian Parisca</h3>
-      <p class="text-sm font-medium text-blue-600">Estudiante de Ingeniería de Sistemas</p>
+    <div class="absolute -bottom-10 left-1/2 transform -translate-x-1/2 w-64 md:w-72 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl shadow-blue-900/10 border border-white z-30 text-center">
+      <h3 class="text-lg md:text-xl font-bold text-gray-900">Christian Parisca</h3>
+      <p class="text-xs md:text-sm font-medium text-blue-600">Estudiante de Ingeniería de Sistemas</p>
     </div>
-
   </div>
   
 </section>

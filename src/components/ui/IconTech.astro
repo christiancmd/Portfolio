@@ -1,5 +1,4 @@
 ---
-
 interface IconTechProps {
   src: string;
   alt: string;
@@ -9,4 +8,8 @@ interface IconTechProps {
 const { src, alt, style } = Astro.props as IconTechProps;
 ---
 
-<img src={src} alt={alt} class=` ${style} absolute size-14 lg:size-14 bg-white p-2 rounded-full shadow-lg border border-gray-100 z-10 object-contain `>
+<img 
+  src={src} 
+  alt={alt} 
+  class={`${style} absolute size-10 md:size-12 lg:size-14 bg-white p-1.5 md:p-2 rounded-full shadow-lg border border-gray-100 z-10 object-contain`}
+>
