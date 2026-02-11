@@ -1,7 +1,10 @@
 ---
 // Puedes cambiar estas URLs por tus imágenes locales
+import { Image } from 'astro:assets';
+
+
 const userImage = "/chris.png";
-const backgroundImage = "/bg-christian.png";
+const backgroundImage = "/bg-hero.png";
 
 const reactIcon = "/icon/react.svg";
 const nextIcon = "/icon/next.svg";
@@ -62,11 +65,13 @@ import Button from '../ui/Button.astro';
       style={`background-image: url(${backgroundImage});`}
       class="rounded-full p-12 md:p-20 lg:p-24 bg-cover bg-center border border-gray-100 shadow-inner relative"
     >
-      <img
+      <Image
         src={userImage}
         alt="Imagen de Christian Parisca"
         class="size-48 md:size-56 lg:size-64 object-cover rounded-full border-4 border-white shadow-2xl bg-linear-to-tr from-blue-500 via-white to-blue-600 relative z-20"
-      />
+        width={48}
+        height={48}
+        />
 
       {technologies.map(tech => (
         <IconTech

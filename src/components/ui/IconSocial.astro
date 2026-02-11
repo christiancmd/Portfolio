@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 interface IconSocialProps {
   src: string;
   alt: string;
@@ -7,4 +9,4 @@ interface IconSocialProps {
 const { src, alt} = Astro.props as IconSocialProps;
 ---
 
-<img src={src} alt={alt} class=`size-10 shadow-lg z-10 object-contain hover:scale-110 hover:-translate-y-1 transition-transform duration-300` />
+<Image src={src} alt={alt} width={10} height={10} class=`size-10 shadow-lg z-10 object-contain hover:scale-110 hover:-translate-y-1 transition-transform duration-300` />

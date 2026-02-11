@@ -1,7 +1,5 @@
 ---
-// Importa tus iconos aquí si usas alguna librería como astro-icon
-// import { Icon } from 'astro-icon/components'
-
+import { Image } from 'astro:assets';
 interface Props {
     title: string;
     side: string;
@@ -74,10 +72,12 @@ const { title, side, techs } = Astro.props;
                     <li class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-300 bg-slate-800/50 border border-slate-700 rounded-lg group/item hover:border-blue-400 dark:hover:border-blue-500 hover:bg-slate-800 transition-all duration-200">
                         <div class="shrink-0 w-6 h-6 flex items-center justify-center rounded shadow-sm group-hover/item:scale-110 transition-transform">
 
-                            <img 
-                                src={ICON_MAP[tech as keyof typeof ICON_MAP] || "/icon/web.svg"} 
+                            <Image
+                                src={ICON_MAP[tech as keyof typeof ICON_MAP] || "/icon/frontend.svg"} 
                                 alt={`Logo de ${tech}`}
-                            class="size-6 object-contain" 
+                                class="size-6 object-contain"
+                                width={24}
+                                height={24} 
                             />
                         </div>
                 
