@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 interface Props {
     title: string;
     side: string;
-    techs: string[]; // Idealmente, esto podría ser un objeto { name: string, icon: string }
+    techs: string[];
 }
 
 
@@ -44,7 +44,6 @@ const { title, side, techs } = Astro.props;
 ---
 
 <article class="group relative h-full w-full max-w-sm lg:max-w-md mx-auto">
-    <div class="absolute -inset-0.5 bg-linear-to-r from-blue-600 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
     
     <div class="relative h-full bg-slate-900 rounded-xl border border-slate-800 shadow-xl overflow-hidden flex flex-col">
         

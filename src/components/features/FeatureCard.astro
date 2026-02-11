@@ -9,10 +9,10 @@ interface Props {
   iconColor?: string;
 }
 
-const { title, description, iconBg, iconColor, icon } = Astro.props;
+const { title, description, iconBg, icon } = Astro.props;
 ---
 
-<div class=" bg-gray-200 p-8 lg:p-10 rounded-[2.5rem] shadow-sm flex flex-col gap-6 h-full border border-gray-50/50 transition-transform hover:-translate-y-1">
+<div class=" bg-gray-200 p-8 lg:p-10 rounded-[2.5rem] shadow-sm flex flex-col gap-6 h-full border border-gray-50/50 transition-transform hover:-translate-y-1 duration-200 timeline-view animate-blurred-fade-in animate-range-[entry_10%_contain_30%]">
   <div class={`w-14 h-14 ${iconBg} text-white rounded-2xl flex items-center justify-center`}>
     <Image src={icon} width={8} height={8} class="size-8 object-cover" alt={title}>
   </div>
