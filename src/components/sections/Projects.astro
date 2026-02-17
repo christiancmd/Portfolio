@@ -19,8 +19,8 @@ const { section, resume } = Astro.props;
   class="w-full min-h-screen flex flex-col items-center justify-center py-24 relative overflow-hidden"
 >
   {/* Elemento decorativo de fondo opcional (circulo difuminado) */}
-  <Cloud bgColor="bg-slate-300" location=" top-60 left-20 lg:top-30" />
-  <Cloud bgColor="bg-slate-300" location="top-200 right-20 lg:top-200" />
+  <Cloud bgColor="bg-slate-300 dark:bg-slate-950" location=" top-60 left-20 lg:top-30" />
+  <Cloud bgColor="bg-slate-300 dark:bg-slate-950" location="top-200 right-20 lg:top-200" />
 
   {/* Contenedor principal con ancho controlado */}
   <div class="max-w-7xl mx-auto px-6 w-full z-10">
@@ -31,16 +31,16 @@ const { section, resume } = Astro.props;
         >{section}</span
       >
       <h2
-        class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight"
+        class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight dark:text-white"
       >
-        Proyectos <span class="text-blue-600">Destacados</span>
+        Proyectos <span class="text-blue-600 dark:text-sky-800">Destacados</span>
       </h2>
       {/* Línea decorativa */}
       <div
         class="h-1.5 w-24 bg-linear-to-r from-gray-600 to-blue-500 rounded-full mb-6"
       >
       </div>
-      <p class="text-[16px] md:text-lg lg:text-xl text-slate-600 max-w-2xl leading-relaxed">
+      <p class="text-[16px] md:text-lg lg:text-xl text-slate-600 max-w-2xl leading-relaxed dark:text-slate-300">
         {resume}.
       </p>
     </div>

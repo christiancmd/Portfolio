@@ -1,2 +1,4 @@
 @import "tailwindcss";
 @import 'tailwind-animations';
+
+@custom-variant dark (&:where(.dark, .dark *));

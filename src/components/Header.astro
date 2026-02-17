@@ -8,48 +8,86 @@ interface Props {
 const { author } = Astro.props;
 ---
 
-<header class="fixed top-0 h-24 w-full flex items-center justify-between bg-white shadow-md px-8  z-50">
+<header class="fixed top-0 h-24 w-full flex items-center justify-between bg-white shadow-md px-8 z-50 dark:bg-gray-950">
     <div>
-       <p><span class="font-bold">{author}</span> / Maracay, Venezuela</p>
+       <p class="dark:text-white"><span class="font-bold dark:text-white">{author}</span> / Maracay, Venezuela</p>
+    </div>
+
+    <div class="absolute right-5 lg:right-40 top-24 h-full flex flex-col items-center">
+        <div class="w-px h-12 bg-gray-400 dark:bg-gray-500 border-t- border-amber-50"></div>
+        
+        <button 
+            id="theme-toggler" 
+            class="group relative flex flex-col items-center focus:outline-none transform active:translate-y-3 transition-transform duration-150 bg-amber-50/80 size-16 rounded-full"
+            aria-label="Cambiar modo de luz"
+        >
+            <div class="w-6 h-5 bg-gray-800 dark:bg-yellow-400 rounded-b-lg shadow-md transition-colors"></div>
+            <div class="hidden dark:block absolute top-4 w-8 h-8 bg-yellow-400/30 blur-lg rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-gray-900 dark:bg-yellow-600 rounded-full mt-0.5"></div>
+        </button>
     </div>
 
     <nav 
         id="nav-menu" 
-        class="absolute top-full left-0 w-full bg-white shadow-lg py-8 flex-col items-center gap-6 hidden lg:flex lg:static lg:w-auto lg:shadow-none lg:flex-row lg:py-0 transition-all"
+        class="absolute top-full left-0 w-full bg-white shadow-lg py-8 flex-col items-center gap-6 hidden lg:flex lg:static lg:w-auto lg:shadow-none lg:flex-row lg:py-0 transition-all dark:bg-slate-950 lg:bg-transparent lg:dark:bg-transparent"
     >
-        <ul class="flex flex-col lg:flex-row gap-6 justify-center items-center">
-            <li><a href="#about" class="hover:text-blue-600 hover:underline">Sobre mí</a></li>
-            <li><a href="#projects" class="hover:text-blue-600 hover:underline">Proyectos</a></li>
-            <li><a href="#tech" class="hover:text-blue-600 hover:underline">Tecnologías</a></li>
-            <li><a href="#contact" class="hover:text-blue-600 hover:underline">Contacto</a></li>
+       <ul class="flex flex-col lg:flex-row gap-6 justify-center items-center">
+            <li><a href="#about" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Sobre mí</a></li>
+            <li><a href="#projects" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Proyectos</a></li>
+            <li><a href="#tech" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Tecnologías</a></li>
+            <li><a href="#contact" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contacto</a></li>
         </ul>
         <div class="lg:hidden">
+            
             <a href="emailto:pariscachristian@gmail.com">
-                <Button text='Contáctame' color='text-white' bg='bg-gray-900'/>
+                <Button text='Contáctame' color='text-white' bg='bg-gray-900 dark:bg-sky-800'/>
             </a>
         </div>
     </nav>
 
     <div class="hidden lg:block">
         <a href="emailto:pariscachristian@gmail.com">
-            <Button text='Contáctame' color='text-white' bg='bg-gray-900'/>
+            <Button text='Contáctame' color='text-white' bg='bg-gray-900 dark:bg-sky-800'/>
         </a>    
     </div>
 
-    <button id="menu-btn" class="lg:hidden p-2 text-gray-900 cursor-pointer" aria-label="Menu">
+    <button id="menu-btn" class="lg:hidden p-2 text-gray-900 cursor-pointer dark:text-white" aria-label="Menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
         </svg>
     </button>
 </header>
 
-<script>
-    const btn = document.getElementById('menu-btn');
-    const menu = document.getElementById('nav-menu');
+<script is:inline>
+  // Lógica para el Modo Oscuro
+  const themeToggler = document.getElementById('theme-toggler');
+  const html = document.documentElement;
 
-    btn?.addEventListener('click', () => {
-        // 'hidden' oculta/muestra el menú, 'flex' lo fuerza a ser columna en móvil
-        menu?.classList.toggle('hidden');
-        menu?.classList.toggle('flex');
-    });
+  const applyTheme = (theme) => {
+    if (theme === 'dark') {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  };
+
+  // Inicializar
+  const savedTheme = localStorage.getItem('theme') || 
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(savedTheme);
+
+  themeToggler?.addEventListener('click', () => {
+    const isDark = html.classList.contains('dark');
+    applyTheme(isDark ? 'light' : 'dark');
+  });
+
+  // Lógica para el Menú Móvil
+  const menuBtn = document.getElementById('menu-btn');
+  const navMenu = document.getElementById('nav-menu');
+
+  menuBtn?.addEventListener('click', () => {
+    navMenu?.classList.toggle('hidden');
+    navMenu?.classList.toggle('flex');
+  });
 </script>
