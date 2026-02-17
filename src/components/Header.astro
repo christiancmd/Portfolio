@@ -18,11 +18,11 @@ const { author } = Astro.props;
         
         <button 
             id="theme-toggler" 
-            class="group relative flex flex-col items-center focus:outline-none transform active:translate-y-3 transition-transform duration-150 bg-amber-50/80 size-16 rounded-full"
+            class="group relative flex flex-col items-center focus:outline-none transform active:translate-y-3 transition-transform duration-150 bg-amber-50/80 size-12 rounded-full cursor-pointer"
             aria-label="Cambiar modo de luz"
         >
-            <div class="w-6 h-5 bg-gray-800 dark:bg-yellow-400 rounded-b-lg shadow-md transition-colors"></div>
-            <div class="hidden dark:block absolute top-4 w-8 h-8 bg-yellow-400/30 blur-lg rounded-full"></div>
+            <div class="w-5 lg:w-6 h-4 lg:h-5 bg-gray-800 dark:bg-yellow-400 rounded-b-lg shadow-md transition-colors"></div>
+            <div class="hidden dark:block absolute top-4 size-6 lg:size-10 bg-yellow-400/30 blur-lg rounded-full"></div>
             <div class="w-1.5 h-1.5 bg-gray-900 dark:bg-yellow-600 rounded-full mt-0.5"></div>
         </button>
     </div>
