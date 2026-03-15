@@ -1,36 +1,43 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/sections/Hero.astro';
-import LinkSoccials from '../components/features/linkSoccials.astro';
-import Projects from '../components/sections/Projects.astro';
-import About from '../components/sections/About.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/sections/Hero.astro";
+import LinkSoccials from "../components/features/linkSoccials.astro";
+import Projects from "../components/sections/Projects.astro";
+import About from "../components/sections/About.astro";
 import Contact from "../components/sections/Contact.astro";
-import Tech from '../components/sections/Tech.astro';
-import '../styles/global.css';
+import Tech from "../components/sections/Tech.astro";
+import Certificates from "../components/sections/certificates.astro";
+import "../styles/global.css";
 
-const title = 'Portafolio - Christian'
+const title = "Portafolio - Christian";
 ---
 
 <Layout title={title}>
-	<main class="flex flex-col gap-16 mx-auto mt-16 dark:bg-slate-950">
+  <main class="flex flex-col gap-16 mx-auto mt-16 dark:bg-slate-950">
+    <Hero author="Christian Parisca" paragraph="Desarrollador Full Stack" />
 
-		<Hero author="Christian Parisca" paragraph="Desarrollador Full Stack"/>
+    <LinkSoccials />
 
-		<LinkSoccials />
+    <About
+      section="Sobre mí"
+      info=`Creo en el software de calidad que se construye con esfuerzo y compromiso. Autodidacta y perseverante, son los dos adjetivos que me indetifican.
+			Mi objetivo es mejorar cada dia más como Ingeniero y comprarle una casa a mamá para su tranquilidad.`
+    />
 
-		<About 
-			section = 'Sobre mí' 
-			info = `Creo en el software de calidad que se construye con esfuerzo y compromiso. Autodidacta y perseverante, son los dos adjetivos que me indetifican.
-			Mi objetivo es mejorar cada dia más como Ingeniero y comprarle una casa a mamá para su tranquilidad.`/>
+    <Projects
+      section="Proyectos"
+      resume=`Una Breve Selección de Desarrollos donde fusiono arquitectura escalable y 
+				buenas practicas para resolver problemas reales ó para enteder la logica de negocio en distintas areas`
+    />
 
-		<Projects 
-			section = 'Proyectos'
-			resume = `Una Breve Selección de Desarrollos donde fusiono arquitectura escalable y 
-				buenas practicas para resolver problemas reales ó para enteder la logica de negocio en distintas areas`/>
+    <Tech section="Tecnologías" />
 
-		<Tech section="Tecnologías" />
-		
-		<Contact section='Contacto' />
-	</main>
+    <Certificates
+      section="Certificados"
+      resume="Logros alcanzados a lo largo del tiempo con el objetivo de fortalecer mis habilidades y conocimientos."
+      warning="Para resguardar información sensible, los certificados no se muestran públicamente."
+    />
+
+    <Contact section="Contacto" />
+  </main>
 </Layout>
-
