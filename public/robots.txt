@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://christian-parisca.vercel.app/sitemap-index.xml
