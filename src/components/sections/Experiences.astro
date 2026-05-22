@@ -1,0 +1,40 @@
+---
+const { section, title, resume } = Astro.props;
+---
+
+<section
+  id={"experiences"}
+  class="w-full min-h-screen flex flex-col items-center justify-center py-24 relative overflow-hidden"
+>
+  <div class="max-w-3xl text-center space-y-8 px-6">
+    <div class="flex flex-col items-center text-center mb-20">
+      <span
+        class="block text-gray-600 font-semibold tracking-wider uppercase text-sm my-8"
+        >{section}</span
+      >
+      <hgroup class="space-y-5">
+        <h3
+          class="font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-gray-900 leading-tight dark:text-white"
+        >
+          <span class="text-blue-600 dark:text-sky-800">Experiencias</span> Laborales
+        </h3>
+        <p
+          class="text-[16px] md:text-lg lg:text-xl text-slate-600 dark:text-slate-300"
+        >
+          {title}
+        </p>
+      </hgroup>
+
+      <div
+        class="h-1.5 w-24 bg-linear-to-r from-gray-600 to-blue-500 rounded-full mb-6"
+      >
+      </div>
+
+      <p
+        class="text-[16px] md:text-lg lg:text-xl text-slate-600 max-w-2xl leading-relaxed dark:text-slate-300"
+      >
+        {resume}.
+      </p>
+    </div>
+  </div>
+</section>
