@@ -1,40 +1,228 @@
 ---
-const { section, title, resume } = Astro.props;
+const { section, resume } = Astro.props;
+
+const experiences = [
+  {
+    id: "sirius",
+    company: "Sirius Tech SRL",
+    role: "Wordpress Developer",
+    period: "Enero 2026 — ACTUALIDAD",
+    description:
+      "Empresa de tecnología especializada en brindar soluciones integrales tanto para el sector residencial como empresarial.",
+    projects: [
+      {
+        category: "ARQUITECTURA",
+        title: "Wordpress Developer",
+        description: [
+          "Creación de página web mediante la integración de Apis Restful y Metodologías ágiles.",
+          "Diseño en Wordpress a medida."
+        ],
+       
+        metrics: [
+          { label: "IMPACTO", value: "+99% Social" },
+          { label: "Modalidad", value: "Remoto" },
+        ],
+      }
+    ],
+  },
+  {
+    id: "sinergia",
+    company: "Grupo Sinergia",
+    role: "Fullstack Developer",
+    period: "Febrero 2026 — Marzo 2026",
+    description: "Plataforma de gestión de recursos en la nube a gran escala.",
+    projects: [
+      {
+        category: "FULLSTACK",
+        title: "Fullstack Developer",
+        description: [
+          "Liderazgo técnico de una pagina web para el sector petrolero, priorizando el rendimiento en producción con Astro.js.",
+          "Implemetación de servicio de correo electronico eficiente."
+        ],
+        metrics: [{ label: "Rendimiento", value: "100%" }, { label: "Modalidad", value: "Remoto" }],
+      },
+    ],
+  },
+  {
+    id: "parisca",
+    company: "PariscaNovedades C.A",
+    role: "Gestor Y Analista de Datos",
+    period: "Agosto 2024 — Mayo 2025",
+    description:
+      "Distribuidora de   y cuidado personal.",
+    projects: [
+      {
+        category: "Analista de Datos",
+        title: "Gestor Y Analista de Datos",
+        description: [
+          "Migración integral de inventario físico a plataformas digitales (Excel), eliminando la dependencia de registros manuales.",
+          "Diseño e implementación de un control de inventario para una manipulación segura y eficiente de los datos."
+        ],
+        metrics: [{ label: "IMPACTO", value: "+100 Productos" }, { label: "Modalidad", value: "Remoto" }],
+      },
+    ],
+  },
+];
 ---
 
-<section
-  id={"experiences"}
-  class="w-full min-h-screen flex flex-col items-center justify-center py-24 relative overflow-hidden"
->
-  <div class="max-w-3xl text-center space-y-8 px-6">
-    <div class="flex flex-col items-center text-center mb-20">
-      <span
-        class="block text-gray-600 font-semibold tracking-wider uppercase text-sm my-8"
-        >{section}</span
-      >
-      <hgroup class="space-y-5">
-        <h3
-          class="font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-gray-900 leading-tight dark:text-white"
-        >
-          <span class="text-blue-600 dark:text-sky-800">Experiencias</span> Laborales
-        </h3>
-        <p
-          class="text-[16px] md:text-lg lg:text-xl text-slate-600 dark:text-slate-300"
-        >
-          {title}
+<section id="experiences" class="w-full py-24 px-6 md:px-12 lg:px-24 bg-[#fcfcfc] dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto">
+    <header class="flex justify-center items-center flex-col mb-30  text-center lg:text-left space-y-4">
+      <span class="block text-xs font-bold tracking-[0.2em] text-slate-500 uppercase">
+        {section || "TRAYECTORIA"}
+      </span>
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">
+        Experiencia <span class="text-blue-600 dark:text-blue-500">Profesional</span>
+      </h2>
+      {resume && (
+        <p class="text-lg text-center md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+          {resume}.
         </p>
-      </hgroup>
+      )}
+    </header>
 
-      <div
-        class="h-1.5 w-24 bg-linear-to-r from-gray-600 to-blue-500 rounded-full mb-6"
-      >
-      </div>
+    <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12 items-start">
+      <!-- Sidebar Navigation -->
+      <nav class="flex flex-col gap-2" aria-label="Selección de experiencia">
+        {experiences.map((exp, index) => (
+          <button 
+            class={`exp-item group relative p-6 text-left rounded-2xl transition-all duration-300 border border-transparent ${index === 0 ? 'bg-white dark:bg-white/5 shadow-xl shadow-black/5 dark:shadow-none border-slate-100 dark:border-white/10 active-state' : 'hover:bg-slate-50 dark:hover:bg-white/5'}`}
+            data-target={exp.id}
+          >
+            <div class="space-y-1">
+              <span class="block text-[10px] font-bold tracking-wider text-slate-400 uppercase">
+                {exp.period}
+              </span>
+              <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 group-[.active-state]:text-blue-600 dark:group-[.active-state]:text-blue-400 transition-colors">
+                {exp.company}
+              </h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                {exp.role}
+              </p>
+            </div>
+            <div class={`absolute right-6 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-blue-600 dark:bg-blue-500 rounded-full transition-opacity duration-300 ${index === 0 ? 'opacity-100' : 'opacity-0'} indicator`}></div>
+          </button>
+        ))}
+      </nav>
 
-      <p
-        class="text-[16px] md:text-lg lg:text-xl text-slate-600 max-w-2xl leading-relaxed dark:text-slate-300"
-      >
-        {resume}.
-      </p>
+      <!-- Content Area -->
+      <main class="relative min-h-[400px]">
+        {experiences.map((exp, index) => (
+          <div 
+            class={`content-item transition-all duration-500 transform ${index === 0 ? 'opacity-100 translate-y-0 relative' : 'opacity-0 translate-y-4 absolute inset-0 pointer-events-none'}`} 
+            id={`content-${exp.id}`}
+          >
+            <header class="flex items-center gap-6 mb-12">
+              <div class="shrink-0 w-14 h-14 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl flex items-center justify-center shadow-sm">
+                <span class="text-xl font-black text-slate-800 dark:text-slate-100">
+                  {exp.company.charAt(0)}
+                </span>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold dark:text-white leading-none mb-2">{exp.company}</h3>
+                <p class="text-slate-500 dark:text-slate-400 max-w-xl">{exp.description}</p>
+              </div>
+            </header>
+
+            <div class="space-y-8">
+              {exp.projects.map((project) => (
+                <article class="group bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-[2rem] p-8 md:p-10 shadow-sm hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
+                  <div class="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-10">
+                    <div class="space-y-6">
+                      <header>
+                        <span class={`inline-block px-3 py-1 rounded-lg text-[10px] font-bold tracking-wider mb-4 
+                          ${project.category === 'ARQUITECTURA' ? 'bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400' : 
+                            project.category === 'SEGURIDAD' ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400' :
+                            project.category === 'FULLSTACK' ? 'bg-rose-50 text-rose-600 dark:bg-rose-500/10 dark:text-rose-400' :
+                            'bg-violet-50 text-violet-600 dark:bg-violet-500/10 dark:text-violet-400'}`}>
+                          {project.category}
+                        </span>
+                        <h4 class="text-2xl font-bold text-slate-800 dark:text-slate-100">{project.title}</h4>
+                      </header>
+                      
+                      <ul class="list-disc list-outside ml-4 space-y-2 text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                        {Array.isArray(project.description) ? (
+                          project.description.map(item => (
+                            <li class="pl-2">{item}</li>
+                          ))
+                        ) : (
+                          <li class="pl-2">{project.description}</li>
+                        )}
+                      </ul>
+                      
+                     
+
+                      <footer class="pt-8 border-t border-slate-100 dark:border-white/5 flex flex-wrap justify-between items-end gap-6">
+                        <div class="flex gap-10">
+                          {project.metrics.map(metric => (
+                            <div class="space-y-1">
+                              <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">{metric.label}</span>
+                              <span class="block text-xl font-black text-slate-800 dark:text-slate-100">{metric.value}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </footer>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center justify-center">
+                      <div class="w-full aspect-4/3 bg-linear-to-br from-slate-50 to-slate-100 dark:from-white/5 dark:to-white/10 rounded-2xl border border-slate-200/50 dark:border-white/5 flex flex-col items-center justify-center relative overflow-hidden group/visual">
+                        <div class="absolute top-4 left-4 flex gap-1.5">
+                          <div class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+                          <div class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+                          <div class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+                        </div>
+                        <span class="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Visualización</span>
+                        <!-- Glossy effect -->
+                        <div class="absolute inset-0 bg-linear-to-tr from-transparent via-blue-500/5 to-transparent blur-2xl transition-all duration-500 group-hover/visual:scale-150"></div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        ))}
+      </main>
     </div>
   </div>
 </section>
+
+<script>
+  function initExperience() {
+    const buttons = document.querySelectorAll('.exp-item');
+    const contents = document.querySelectorAll('.content-item');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target');
+
+        // Update active button state
+        buttons.forEach(b => {
+          b.classList.remove('bg-white', 'dark:bg-white/5', 'shadow-xl', 'shadow-black/5', 'dark:shadow-none', 'border-slate-100', 'dark:border-white/10', 'active-state');
+          b.classList.add('hover:bg-slate-50', 'dark:hover:bg-white/5');
+          const indicator = b.querySelector('.indicator');
+          if (indicator) indicator.classList.replace('opacity-100', 'opacity-0');
+        });
+
+        btn.classList.add('bg-white', 'dark:bg-white/5', 'shadow-xl', 'shadow-black/5', 'dark:shadow-none', 'border-slate-100', 'dark:border-white/10', 'active-state');
+        btn.classList.remove('hover:bg-slate-50', 'dark:hover:bg-white/5');
+        const activeIndicator = btn.querySelector('.indicator');
+        if (activeIndicator) activeIndicator.classList.replace('opacity-0', 'opacity-100');
+
+        // Update active content with animation
+        contents.forEach(content => {
+          if (content.id === `content-${target}`) {
+            content.classList.remove('opacity-0', 'translate-y-4', 'absolute', 'pointer-events-none');
+            content.classList.add('opacity-100', 'translate-y-0', 'relative');
+          } else {
+            content.classList.remove('opacity-100', 'translate-y-0', 'relative');
+            content.classList.add('opacity-0', 'translate-y-4', 'absolute', 'pointer-events-none');
+          }
+        });
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initExperience);
+  initExperience();
+</script>
