@@ -5,17 +5,19 @@ const experiences = [
   {
     id: "sirius",
     company: "Sirius Tech SRL",
+    logo: "/companies/sirius.webp",
     role: "Wordpress Developer",
     period: "Enero 2026 — ACTUALIDAD",
     description:
-      "Empresa de tecnología especializada en brindar soluciones integrales tanto para el sector residencial como empresarial.",
+      "Empresa de tecnología especializada en brindar soluciones integrales tanto para el sector residencial como empresarial en República Dominicana.",
     projects: [
       {
         category: "ARQUITECTURA",
         title: "Wordpress Developer",
-        description: [
-          "Creación de página web mediante la integración de Apis Restful y Metodologías ágiles.",
-          "Diseño en Wordpress a medida."
+        description: [ 
+          "Diseño en Wordpress a medida según requerimientos del cliente y necesidades del proyecto.",
+          "Creación de página web mediante la integración de CMS, Plugins eficientes y Metodologías Ágiles.",
+          "Optimización de la página web para SEO."
         ],
        
         metrics: [
@@ -28,16 +30,18 @@ const experiences = [
   {
     id: "sinergia",
     company: "Grupo Sinergia",
+    logo: "/companies/sinergia.webp",
     role: "Fullstack Developer",
     period: "Febrero 2026 — Marzo 2026",
-    description: "Plataforma de gestión de recursos en la nube a gran escala.",
+    description: "Conglomerado de expertos especializados en recuperación y adecuación de infraestructura para potenciar la producción de crudo y gas.",
     projects: [
       {
         category: "FULLSTACK",
         title: "Fullstack Developer",
         description: [
-          "Liderazgo técnico de una pagina web para el sector petrolero, priorizando el rendimiento en producción con Astro.js.",
-          "Implemetación de servicio de correo electronico eficiente."
+          "Liderazgo técnico en la planificación y desarrollo de una pagina web para el sector petrolero, priorizando el rendimiento en producción con Astro.js.",
+          "Implemetación de servicio de correo electrónico eficiente.",
+          "Optimización del flujo de trabajo mediante herramientas y agentes de IA, logrando un desarrollo de código más limpio, rápido y eficiente."
         ],
         metrics: [{ label: "Rendimiento", value: "100%" }, { label: "Modalidad", value: "Remoto" }],
       },
@@ -46,17 +50,19 @@ const experiences = [
   {
     id: "parisca",
     company: "PariscaNovedades C.A",
+    logo: "/companies/parisca.webp",
     role: "Gestor Y Analista de Datos",
     period: "Agosto 2024 — Mayo 2025",
     description:
-      "Distribuidora de   y cuidado personal.",
+      "Distribuidora de ropa con las mejores marcas nacionales e importadas de Perú.",
     projects: [
       {
         category: "Analista de Datos",
         title: "Gestor Y Analista de Datos",
         description: [
           "Migración integral de inventario físico a plataformas digitales (Excel), eliminando la dependencia de registros manuales.",
-          "Diseño e implementación de un control de inventario para una manipulación segura y eficiente de los datos."
+          "Diseño e implementación de un control de inventario para una manipulación segura y eficiente de los datos.",
+          "Generación de reportes semanales de ventas y rendimiento de productos."
         ],
         metrics: [{ label: "IMPACTO", value: "+100 Productos" }, { label: "Modalidad", value: "Remoto" }],
       },
@@ -89,16 +95,21 @@ const experiences = [
             class={`exp-item group relative p-6 text-left rounded-2xl transition-all duration-300 border border-transparent ${index === 0 ? 'bg-white dark:bg-white/5 shadow-xl shadow-black/5 dark:shadow-none border-slate-100 dark:border-white/10 active-state' : 'hover:bg-slate-50 dark:hover:bg-white/5'}`}
             data-target={exp.id}
           >
-            <div class="space-y-1">
-              <span class="block text-[10px] font-bold tracking-wider text-slate-400 uppercase">
-                {exp.period}
-              </span>
-              <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 group-[.active-state]:text-blue-600 dark:group-[.active-state]:text-blue-400 transition-colors">
-                {exp.company}
-              </h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400">
-                {exp.role}
-              </p>
+            <div class="flex items-center gap-3">
+              <div class="shrink-0 w-9 h-9 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg flex items-center justify-center overflow-hidden p-1">
+                <img src={exp.logo} alt={exp.company} class="w-full h-full object-contain" loading="lazy" />
+              </div>
+              <div class="space-y-1">
+                <span class="block text-[10px] font-bold tracking-wider text-slate-400 uppercase">
+                  {exp.period}
+                </span>
+                <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 group-[.active-state]:text-blue-600 dark:group-[.active-state]:text-blue-400 transition-colors">
+                  {exp.company}
+                </h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400">
+                  {exp.role}
+                </p>
+              </div>
             </div>
             <div class={`absolute right-6 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-blue-600 dark:bg-blue-500 rounded-full transition-opacity duration-300 ${index === 0 ? 'opacity-100' : 'opacity-0'} indicator`}></div>
           </button>
@@ -113,10 +124,8 @@ const experiences = [
             id={`content-${exp.id}`}
           >
             <header class="flex items-center gap-6 mb-12">
-              <div class="shrink-0 w-14 h-14 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl flex items-center justify-center shadow-sm">
-                <span class="text-xl font-black text-slate-800 dark:text-slate-100">
-                  {exp.company.charAt(0)}
-                </span>
+              <div class="shrink-0 w-14 h-14 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl flex items-center justify-center shadow-sm overflow-hidden">
+                <img src={exp.logo} alt={exp.company} class="w-full h-full object-contain" loading="lazy" />
               </div>
               <div>
                 <h3 class="text-2xl font-bold dark:text-white leading-none mb-2">{exp.company}</h3>
