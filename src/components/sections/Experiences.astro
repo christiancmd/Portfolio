@@ -167,7 +167,7 @@ const experiences = [
                   />
                 </div>
                 <div>
-                  <h3 class="text-2xl font-bold dark:text-white leading-none mb-2">
+                  <h3 class="text-xl md:text-2xl font-bold dark:text-white leading-none mb-2">
                     {exp.company}
                   </h3>
                   <p class="text-slate-500 dark:text-slate-400 max-w-xl">
@@ -190,10 +190,12 @@ const experiences = [
                         <ul class="list-disc list-outside ml-4 space-y-2 text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
                           {Array.isArray(project.description) ? (
                             project.description.map((item) => (
-                              <li class="pl-2">{item}</li>
+                              <li class="text-sm md:text-md lg:text-lg tracking-wide font-normal">
+                                {item}
+                              </li>
                             ))
                           ) : (
-                            <li class="pl-2">{project.description}</li>
+                            <li class="text-sm">{project.description}</li>
                           )}
                         </ul>
 
@@ -201,10 +203,10 @@ const experiences = [
                           <div class="flex gap-10">
                             {project.metrics.map((metric) => (
                               <div class="space-y-1">
-                                <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                                <span class="block text-[10px] font-bold text-slate-400 uppercase">
                                   {metric.label}
                                 </span>
-                                <span class="block text-xl font-black text-slate-800 dark:text-slate-100">
+                                <span class="block text-sm md:text-xl font-semibold text-slate-800 dark:text-slate-100">
                                   {metric.value}
                                 </span>
                               </div>
