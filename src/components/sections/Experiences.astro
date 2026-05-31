@@ -98,7 +98,7 @@ const experiences = [
         {section || "TRAYECTORIA"}
       </span>
       <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">
-        Experiencia <span class="text-blue-600 dark:text-blue-500"
+        Experiencia <span class="text-blue-600 dark:text-sky-800"
           >Profesional</span
         >
       </h2>
@@ -117,11 +117,11 @@ const experiences = [
         {
           experiences.map((exp, index) => (
             <button
-              class={`exp-item group relative p-6 text-left rounded-2xl transition-all duration-300 border border-transparent ${index === 0 ? "bg-white dark:bg-white/5 shadow-xl shadow-black/5 dark:shadow-none border-slate-100 dark:border-white/10 active-state" : "hover:bg-slate-50 dark:hover:bg-white/5"}`}
+              class={`exp-item group relative p-6 text-left rounded-2xl transition-all duration-300 border border-transparent ${index === 0 ? "bg-slate-900 shadow-xl shadow-black/5 dark:shadow-none border-slate-100 dark:border-white/10 active-state" : "bg-slate-900 hover:bg-slate-900"}`}
               data-target={exp.id}
             >
               <div class="flex items-center gap-3">
-                <div class="shrink-0 w-9 h-9 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg flex items-center justify-center overflow-hidden p-1">
+                <div class="shrink-0 w-9 h-9 bg-white border border-slate-200 dark:border-white/10 rounded-lg flex items-center justify-center overflow-hidden p-1">
                   <img
                     src={exp.logo}
                     alt={exp.company}
@@ -133,10 +133,10 @@ const experiences = [
                   <span class="block text-[10px] font-bold tracking-wider text-slate-400 uppercase">
                     {exp.period}
                   </span>
-                  <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 group-[.active-state]:text-blue-600 dark:group-[.active-state]:text-blue-400 transition-colors">
+                  <h3 class="text-lg font-bold text-slate-200 dark:text-slate-100 group-[.active-state]:text-blue-600 dark:group-[.active-state]:text-blue-400 transition-colors">
                     {exp.company}
                   </h3>
-                  <p class="text-sm text-slate-500 dark:text-slate-400">
+                  <p class="text-sm text-slate-200 dark:text-slate-300">
                     {exp.role}
                   </p>
                 </div>
@@ -178,16 +178,16 @@ const experiences = [
 
               <div class="space-y-8">
                 {exp.projects.map((project) => (
-                  <article class="group bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-[2rem] p-8 md:p-10 shadow-sm hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
+                  <article class="group bg-slate-900 rounded-[2rem] p-8 md:p-10 backdrop-blur-sm border-b-4 border-slate-600  shadow-2xl shadow-slate-700 dark:bg-slate-900 dark:border-sky-900 dark:shadow-sky-950">
                     <div class="w-full">
                       <div class="space-y-6">
                         <header>
-                          <h4 class="text-2xl font-bold text-slate-800 dark:text-slate-100">
+                          <h4 class="text-2xl font-bold text-slate-100">
                             {project.title}
                           </h4>
                         </header>
 
-                        <ul class="list-disc list-outside ml-4 space-y-2 text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                        <ul class="list-disc list-outside ml-4 space-y-2 text-slate-300 leading-relaxed text-lg">
                           {Array.isArray(project.description) ? (
                             project.description.map((item) => (
                               <li class="text-sm md:text-md lg:text-lg tracking-wide font-normal">
@@ -199,14 +199,14 @@ const experiences = [
                           )}
                         </ul>
 
-                        <footer class="pt-8 border-t border-slate-100 dark:border-white/5 flex flex-wrap justify-between items-end gap-6">
+                        <footer class="pt-8 border-t border-white/20 dark:border-white/5 flex flex-wrap justify-between items-end gap-6">
                           <div class="flex gap-10">
                             {project.metrics.map((metric) => (
                               <div class="space-y-1">
                                 <span class="block text-[10px] font-bold text-slate-400 uppercase">
                                   {metric.label}
                                 </span>
-                                <span class="block text-sm md:text-xl font-semibold text-slate-800 dark:text-slate-100">
+                                <span class="block text-sm md:text-xl font-semibold text-slate-100">
                                   {metric.value}
                                 </span>
                               </div>
@@ -238,8 +238,6 @@ const experiences = [
         // Update active button state
         buttons.forEach((b) => {
           b.classList.remove(
-            "bg-white",
-            "dark:bg-white/5",
             "shadow-xl",
             "shadow-black/5",
             "dark:shadow-none",
@@ -247,15 +245,13 @@ const experiences = [
             "dark:border-white/10",
             "active-state",
           );
-          b.classList.add("hover:bg-slate-50", "dark:hover:bg-white/5");
+          b.classList.add("border-transparent", "hover:bg-slate-900");
           const indicator = b.querySelector(".indicator");
           if (indicator)
             indicator.classList.replace("opacity-100", "opacity-0");
         });
 
         btn.classList.add(
-          "bg-white",
-          "dark:bg-white/5",
           "shadow-xl",
           "shadow-black/5",
           "dark:shadow-none",
@@ -263,7 +259,7 @@ const experiences = [
           "dark:border-white/10",
           "active-state",
         );
-        btn.classList.remove("hover:bg-slate-50", "dark:hover:bg-white/5");
+        btn.classList.remove("border-transparent", "hover:bg-slate-900");
         const activeIndicator = btn.querySelector(".indicator");
         if (activeIndicator)
           activeIndicator.classList.replace("opacity-0", "opacity-100");
