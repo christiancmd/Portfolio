@@ -12,7 +12,7 @@ interface Props {
 const { title, description, iconBg, icon } = Astro.props;
 ---
 
-<div class=" bg-gray-200 p-8 lg:p-10 rounded-[2.5rem] shadow-sm flex flex-col gap-6 h-full border border-gray-50/50 transition-transform dark:bg-gray-950 hover:-translate-y-1 duration-200 timeline-view animate-blurred-fade-in animate-range-[entry_10%_contain_30%]">
+<div class=" bg-gray-200 p-8 lg:p-10 rounded-[2.5rem] shadow-sm flex flex-col gap-6 h-full backdrop-blur-sm border-b-4 border-slate-600  shadow-2xl shadow-slate-700 dark:bg-slate-900 dark:border-sky-900 dark:shadow-sky-950 transition-transform dark:bg-gray-950 hover:-translate-y-1 duration-200 timeline-view animate-blurred-fade-in animate-range-[entry_10%_contain_30%]">
   <div class={`w-14 h-14 ${iconBg} text-white rounded-2xl flex items-center justify-center`}>
     <Image src={icon} width={8} height={8} class="size-8 object-cover" alt={title}>
   </div>
