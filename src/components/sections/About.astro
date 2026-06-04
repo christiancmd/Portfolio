@@ -7,37 +7,60 @@ const simulationIcon = "/icon/simulation.svg"
 const webIcon = "/icon/frontend.svg"
 
 const features = [
-
 	{
-		title: "Desarrollo Back-End",
-		description: "Desarrollo de APIs y servicios en Python, gestionando la lógica de negocio, la persistencia de datos y las integraciones que dan soporte a aplicaciones escalables.",
-		icon: simulationIcon,
-		bg: "bg-gray-900"
+    title: "Desarrollo Web",
+    description:
+      "Creación de interfaces de usuario intuitivas y accesibles utilizando React, Astro.js y TypeScript. Desarrollo de APIs y servicios en Python, gestionando la lógica de negocio, la persistencia de datos y las integraciones que dan soporte a aplicaciones escalables.",
+    icon: webIcon,
+    bg: "bg-gray-900",
 	},
 	{
 		title: "Inteligencia Artificial",
-		description: "Implementación de modelos de Inteligencia Artificial en aplicaciones web para automatizar procesos y reducir tiempo de desarrollo.",
+    description:
+      "Implementación de modelos de Inteligencia Artificial en el desarrollo de aplicaciones web para automatizar procesos y reducir tiempo de desarrollo. Experiencia en la orquestación de arquitecturas multi-agente, uso de MCP y de habilidades (skills)",
 		icon: aiIcon,
-		bg: "bg-gray-900"
-	},	{
-		title: "Desarrollo Front-End",
-		description: "Creación de interfaces de usuario intuitivas y accesibles utilizando React, Next.js y Typescript, con un fuerte enfoque en la usabilidad y una estructura de componentes.",
-		icon: webIcon,
-		bg: "bg-gray-900"
+    bg: "bg-gray-900",
+  },
+  {
+    title: "Analista de Datos",
+    description:
+      "Procesamiento y visualización de grandes volúmenes de datos para identificar patrones clave, optimizar el rendimiento del negocio y respaldar decisiones estratégicas mediante métricas e indicadores reales. Sentencias SQL, ERPs y Excel Avanzado.",
+    icon: simulationIcon,
+    bg: "bg-gray-900",
 	},
-]
+];
 
-const {section, info} = Astro.props
+const { section, info } = Astro.props;
 ---
 
-<section id={"about"} class="relative w-full min-h-[65vh] flex flex-col gap-18 justify-center items-center py-12 ">
-
-    <div class="max-w-3xl text-center space-y-8 px-6">
-        <span class="block text-gray-600 font-semibold tracking-wider uppercase text-sm my-8">{section}</span>
-        <hgroup class="space-y-5 "> 
-            <h3 class="font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-gray-900 leading-tight dark:text-white"><span class="text-blue-600 dark:text-sky-800">Christian</span> Parisca Herrera</h3>
-            <p class="text-[16px] md:text-lg lg:text-xl  text-slate-600 dark:text-slate-300">{info}</p>
-        
+<section
+  id={"about"}
+  class="relative w-full min-h-[65vh] flex flex-col gap-18 justify-center items-center py-12"
+>
+  <div class="max-w-4xl text-center space-y-8 px-6">
+    <span
+      class="block text-gray-600 font-semibold tracking-wider uppercase text-sm my-8"
+      >{section}</span
+    >
+    <hgroup class="space-y-5">
+      <h3
+        class="font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight text-gray-900 leading-tight dark:text-white"
+      >
+        <span class="text-blue-600 dark:text-sky-800">Christian</span> Parisca Herrera
+      </h3>
+      <p
+        class="text-[16px] md:text-lg lg:text-xl font-medium text-slate-800 dark:text-slate-300"
+      >
+        Desarollador Web
+        <span class="text-yellow-500 dark:text-sky-800">|</span> Ingeniero de Sistemas
+        <span class="text-yellow-500 dark:text-sky-800">|</span> Analista de Datos
+        <span class="text-yellow-500 dark:text-sky-800">|</span> IA Engineer
+      </p>
+      <p
+        class="text-[16px] md:text-lg lg:text-xl text-slate-600 dark:text-slate-300"
+      >
+        {info}
+      </p>
         </hgroup>
 		
 		<a href="/cv/Curriculum_Christian.pdf" download="curriculum_Christian_Parisca.pdf" class="w-full sm:w-auto">
