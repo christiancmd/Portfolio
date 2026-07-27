@@ -3,6 +3,35 @@ const { section, resume } = Astro.props;
 
 const experiences = [
   {
+    id: "ceinar",
+    company: "Ceinar",
+    logo: "/companies/ceinar.webp",
+    role: "Backend Developer",
+    period: "Junio 2026 — Julio 2026",
+    description:
+      "Organismo principal que agrupa a los profesionales de la ingeniería en el estado es el Centro de Ingenieros del Estado Aragua (CEINAR).",
+    projects: [
+      {
+        category: "BACKEND DEVELOPER",
+        title: "Desarrollador Backend",
+        description: [
+          "Desarrollo del backend para una plataforma de gestión de emergencias post-sísmicas, orientada a la respuesta técnica inmediata ante desastres por parte de ingenieros voluntarios.",
+          "Apoyo prolongado en la auditoría del sistema y la migración de la base de datos.",
+          "Uso de contenedores con Docker para garantizar un buen desarrollo en equipo..",
+        ],
+
+        metrics: [
+          { label: "IMPACTO", value: "+200 Voluntarios" },
+          { label: "Modalidad", value: "Híbrido" },
+          {
+            label: "Tecnologías",
+            value: "Django Rest Framework, Docker, PostgreSQL, Excel",
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: "sirius",
     company: "Sirius Tech SRL",
     logo: "/companies/sirius.webp",
