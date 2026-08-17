@@ -1,4 +1,6 @@
 ---
+import Box from "../features/box.astro";
+
 const { section, resume } = Astro.props;
 
 const experiences = [
@@ -179,7 +181,7 @@ const experiences = [
       </nav>
 
       <!-- Content Area -->
-      <main class="relative min-h-[400px]">
+      <main class="relative min-h-100">
         {
           experiences.map((exp, index) => (
             <div
@@ -251,6 +253,10 @@ const experiences = [
           ))
         }
       </main>
+    </div>
+
+    <div>
+      <Box />
     </div>
   </div>
 </section>
@@ -324,3 +330,45 @@ const experiences = [
   document.addEventListener("astro:page-load", initExperience);
   initExperience();
 </script>
+
+<style>
+  .grid-pattern {
+    background-size: 24px 24px;
+    background-image:
+      linear-gradient(to right, rgba(16, 185, 129, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(16, 185, 129, 0.08) 1px, transparent 1px);
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes float-reverse {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(8px);
+    }
+  }
+
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 5.5s ease-in-out infinite;
+    animation-delay: 1.5s;
+  }
+
+  .animate-float-reverse {
+    animation: float-reverse 6s ease-in-out infinite;
+  }
+</style>

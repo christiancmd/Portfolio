@@ -12,6 +12,12 @@ export interface Project {
   used_tech: { tech: { name: string } }[];
 }
 
+export interface Solution {
+  id: number;
+  url_solution: string;
+  cod: string;
+}
+
 export async function getProjects(): Promise<Project[]> {
   try {
     const { data, error } = await supabase.from("project").select(`
@@ -21,16 +27,32 @@ export async function getProjects(): Promise<Project[]> {
     )
   `);
 
-  if (error) {
-    console.error("Error al obtener proyectos:", error.message);
-    return [];
-  }
+    if (error) {
+      console.error("Error al obtener proyectos:", error.message);
+      return [];
+    }
 
-  return data as Project[] || [];
+    return (data as Project[]) || [];
   } catch (error) {
-    
     console.error("Error inesperado:", error);
     return [];
   }
+}
 
+export async function getSolutions() {
+  try {
+    const { data, error } = await supabase
+      .from("solutions")
+      .select(`id, url_solution, cod`);
+
+    if (error) {
+      console.error("Error al obtener soluciones:", error.message);
+      return [];
+    }
+
+    return (data as Solution[]) || [];
+  } catch (error) {
+    console.error("Error inesperado:", error);
+    return [];
+  }
 }

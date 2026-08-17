@@ -1,0 +1,103 @@
+---
+import MockupCell from "./MockupCell.astro";
+import MockupPrincipal from "./MockupPrincipal.astro";
+import { getSolutions } from "../../service/projects";
+
+const solutions = await getSolutions();
+
+const CELL_PROJECTS = [
+  {
+    cod: "sinergia",
+    name: "Grupo Sinergia",
+    title: "Página Web",
+    descriptioon:
+      "Desarrollo de una pagina web para el sector petrolero, priorizando el rendimiento y la escalabilidad en producción. Optimización del flujo de trabajo mediante herramientas y agentes de IA. ",
+    details:
+      "Administración de correos corporativos y servicios de mensajería. ",
+    keys: ["hola", "adios", "goodbye"],
+    position: "left",
+    url: "https://gruposinergiainternational.com/",
+  },
+  {
+    cod: "kat",
+    name: "Kat",
+    title: "Sistema de Gestión",
+    descriptioon:
+      "Herramienta híbrida definitiva que te permite vender productos y agendar servicios desde un solo lugar. ",
+    details:
+      "Transforma tus clics en ventas por WhatsApp con la tasa del BCV integrada automáticamente y un dashboard de métricas en tiempo real ",
+    keys: ["hola", "adios", "goodbye"],
+    position: "right",
+    url: "https://kat.cambur.team/",
+  },
+];
+
+const PRINCIPAL_PROJECT = {
+  cod: "ceinar",
+  name: "Ceinar",
+  title: "Página Web",
+  description:
+    "Desarrollo de una pagina web para el sector petrolero, priorizando el rendimiento y la escalabilidad en producción. Optimización del flujo de trabajo mediante herramientas y agentes de IA. ",
+  details: "Administración de correos corporativos y servicios de mensajería. ",
+  keys: ["hola", "adios", "goodbye"],
+  position: "left",
+  url: "https://gruposinergiainternational.com/",
+};
+
+const getImageUrl = (cod: string) => {
+  return solutions.find((s) => s.cod === cod)?.url_solution || "";
+};
+---
+
+<!-- show new data  -->
+<div class="mt-28 rounded-[2.5rem] p-8 md:p-12 lg:p-2 relative overflow-hidden">
+  <!-- Cabecera de la Sección -->
+  <div
+    class="flex flex-col lg:flex-row lg:justify-between lg:items-end gap-6 mb-16 relative z-10"
+  >
+    <div class="space-y-8 w-full">
+      <img
+        src="/icon/chevrons-down.svg"
+        alt=""
+        class="w-16 h-16 mx-auto stroke-dark dark:invert"
+      />
+      <h3
+        class="text-center text-md md:text-xl lg:text-2xl font-extrabold tracking-tight"
+      >
+        Soluciones Corporativas
+      </h3>
+    </div>
+  </div>
+
+  <!-- Grid Principal de Proyectos -->
+  <div class="flex flex-col gap-y-14">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 relative z-10">
+      {
+        CELL_PROJECTS.map((project) => (
+          <MockupCell
+            position={project.position}
+            name={project.name}
+            title={project.title}
+            descriptioon={project.descriptioon}
+            detail={project.details}
+            keys={project.keys}
+            image={getImageUrl(project.cod)}
+            url={project.url}
+          />
+        ))
+      }
+    </div>
+    <div>
+      <MockupPrincipal
+        name={PRINCIPAL_PROJECT.name}
+        title={PRINCIPAL_PROJECT.title}
+        description={PRINCIPAL_PROJECT.description}
+        details={PRINCIPAL_PROJECT.details}
+        keys={PRINCIPAL_PROJECT.keys}
+        position={PRINCIPAL_PROJECT.position}
+        image="/portal_ceinar.webp"
+        url={PRINCIPAL_PROJECT.url}
+      />
+    </div>
+  </div>
+</div>
