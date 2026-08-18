@@ -13,22 +13,34 @@ const image = "/certificatesection.jpeg";
 
 const certificates = [
   {
-    name: "Inglés Conversacional de Nivel Básico A1-A2",
-    college: "SPEED UP LEARNING",
-    date: "Sep 2024 - Ene 2025",
+    name: "La Medición de Calidad del Software",
+    college: "SUSCERTE",
+    date: "Jul 2026",
     status: "Completado",
   },
   {
     name: "Ingles Conversacional de Nivel Intermedio B1-B2",
-    college: "SPEED UP LEARNING",
+    college: "Speed Up Learning Languaje Academy",
     date: "Oct 2025 - Feb 2026",
     status: "Completado",
   },
   {
-    name: "Ingles Conversacional de Nivel Avanzado C1",
-    college: "SPEED UP LEARNING",
-    date: "Feb 2026 - Jul 2026",
-    status: "Desarrollo",
+    name: "Desarrollo con IA: Programa con Agentes",
+    college: "BIG school",
+    date: "Jun 2026",
+    status: "Completado",
+  },
+  {
+    name: "Prompt Engineering for Everyone",
+    college: "Cognitive Class",
+    date: "Jun 2026",
+    status: "Completado",
+  },
+  {
+    name: "Curso de Inglés Conversacional Nivel Básico (A1-A2)",
+    college: "Speed Up Learning Languaje Academy",
+    date: "Jun 2026",
+    status: "Completado",
   },
 ];
 ---
@@ -61,13 +73,13 @@ const certificates = [
   </hgroup>
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16">
-    <div class="order-2 lg:order-1 space-y-6">
-      <div class="space-y-4">
+    <div class="order-2 lg:order-1 space-y-5">
+      <div class="space-y-4 flex flex-col items-center">
         {
           certificates.map((cert) => (
-            <details class="group border text-left border-gray-200 dark:border-slate-800 rounded-xl bg-gray-200 dark:bg-slate-900 transition-all duration-300 hover:ring-1 hover:ring-blue-500 open:ring-1 open:ring-blue-500">
-              <summary class="flex justify-between items-center p-5 cursor-pointer list-none focus:outline-none">
-                <span class="font-semibold text-md lg:text-lg text-gray-800 dark:text-gray-200 group-open:text-blue-600 transition-colors">
+            <details class="w-90 md:w-full group border text-left border-gray-300 dark:border-slate-800 rounded-xl bg-gray-200 dark:bg-slate-900 transition-all duration-300 hover:ring-1 hover:ring-blue-500 open:ring-1 open:ring-blue-500">
+              <summary class="flex justify-between items-center p-3 cursor-pointer list-none focus:outline-none">
+                <span class="font-semibold text-sm lg:text-base text-gray-800 dark:text-gray-200 group-open:text-blue-600 transition-colors">
                   {cert.name}
                 </span>
                 <svg
@@ -86,7 +98,7 @@ const certificates = [
                 </svg>
               </summary>
 
-              <div class="px-5 pb-5 text-medium text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-slate-800 pt-4 animate-fadeIn">
+              <div class="px-5 pb-5 text-medium text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-slate-800 pt-2 animate-fadeIn">
                 <p class="mb-1">
                   <strong class="text-gray-900 dark:text-white">
                     Institución:
@@ -131,7 +143,9 @@ const certificates = [
     </div>
   </div>
 
-  <p class="text-left text-sm text-gray-600 dark:text-gray-400 mt-8 lg:mt-0">
+  <p
+    class="text-center md:text-left text-sm px-2 md:px-0 text-gray-600 dark:text-gray-400 mt-15 lg:mt-5"
+  >
     {warning}
   </p>
 </section>

@@ -7,29 +7,29 @@ const { position, name, title, descriptioon, detail, keys, image, url } =
 
 <div
   class={`w-full group bg-gray-200 dark:bg-gray-950 rounded-3xl overflow-hidden p-6 md:p-8 flex gap-6 md:gap-8 flex-col md:flex-row h-full border-b-4 border-slate-600 dark:border-sky-900 shadow-lg shadow-slate-700 dark:shadow-sky-950 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
-    position === "left"
-      ? "md:flex-row"
-      : "md:flex-row-reverse"
+    position === "left" ? "md:flex-row" : "md:flex-row-reverse"
   } justify-between items-center`}
 >
   <!-- Mockup Celular (Lado Izquierdo) -->
-  {image && (
-    <div class="w-full sm:w-56 md:w-64 lg:w-72 shrink-0 flex justify-center items-center p-2">
-      <img
-        src={image}
-        alt={name}
-        loading="lazy"
-        class="max-w-full max-h-[380px] object-contain drop-shadow-2xl rounded-2xl"
-      />
-    </div>
-  )}
+  {
+    image && (
+      <div class="w-full sm:w-56 md:w-64 lg:w-72 shrink-0 flex justify-center items-center p-2">
+        <img
+          src={image}
+          alt={name}
+          loading="lazy"
+          class="max-w-full max-h-[380px] md:max-h-[480px] object-contain drop-shadow-2xl rounded-2xl"
+        />
+      </div>
+    )
+  }
 
   <!-- Detalles del Proyecto -->
   <div class="w-full flex-1 flex flex-col justify-between h-full">
     <div class="space-y-3 mb-6 border-b border-slate-800 pb-6">
       <div>
         <p
-          class="text-blue-900 text-xs md:text-sm font-semibold uppercase tracking-widest dark:text-amber-400"
+          class="text-yellow-600 text-xs md:text-sm font-semibold uppercase tracking-widest dark:text-amber-400"
         >
           {title}
         </p>
@@ -44,11 +44,13 @@ const { position, name, title, descriptioon, detail, keys, image, url } =
         {descriptioon}
       </p>
 
-      {detail && (
-        <p class="text-slate-700 text-sm md:text-base dark:text-slate-300">
-          {detail}
-        </p>
-      )}
+      {
+        detail && (
+          <p class="text-slate-700 text-sm md:text-base dark:text-slate-300">
+            {detail}
+          </p>
+        )
+      }
     </div>
 
     <a
