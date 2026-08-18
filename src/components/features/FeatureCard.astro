@@ -13,28 +13,28 @@ const { title, description, iconBg, icon } = Astro.props;
 ---
 
 <div
-  class="w-full bg-gray-200 overflow-hidden p-8 lg:p-10 rounded-[2.5rem] flex flex-col gap-6 h-full border-b-4 border-slate-600 shadow-2xl shadow-slate-700 dark:border-sky-900 dark:shadow-sky-950 transition-transform dark:bg-gray-950 hover:-translate-y-1 duration-200 timeline-view animate-blurred-fade-in animate-range-[entry_10%_contain_30%]"
+  class="w-full bg-gray-200 overflow-hidden p-6 sm:p-8 lg:p-10 rounded-[1.75rem] sm:rounded-[2.5rem] flex flex-col gap-4 sm:gap-6 h-full border-b-4 border-slate-600 shadow-xl sm:shadow-2xl shadow-slate-700 dark:border-sky-900 dark:shadow-sky-950 transition-transform dark:bg-gray-950 hover:-translate-y-1 duration-200 timeline-view animate-blurred-fade-in animate-range-[entry_10%_contain_30%]"
 >
   <div
-    class={`w-14 h-14 ${iconBg} text-white rounded-2xl flex items-center justify-center`}
+    class={`w-12 h-12 sm:w-14 sm:h-14 ${iconBg} text-white rounded-xl sm:rounded-2xl flex items-center justify-center`}
   >
     <Image
       src={icon}
       width={8}
       height={8}
-      class="size-8 object-cover"
+      class="w-6 h-6 sm:w-8 sm:h-8 object-cover"
       alt={title}
     />
   </div>
 
-  <div class="space-y-4">
+  <div class="space-y-2 sm:space-y-4">
     <h3
-      class="text-[20px] md:text-2xl font-bold text-slate-900 leading-tight tracking-tight dark:text-slate-300"
+      class="text-lg sm:text-[20px] md:text-2xl font-bold text-slate-900 leading-tight tracking-tight dark:text-slate-300"
     >
       {title}
     </h3>
     <p
-      class="text-slate-600 text-[15px] md:text-lg leading-relaxed font-medium dark:text-slate-400"
+      class="text-slate-600 text-sm sm:text-[15px] md:text-lg leading-relaxed font-medium dark:text-slate-400"
     >
       {description}
     </p>

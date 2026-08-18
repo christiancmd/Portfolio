@@ -35,12 +35,14 @@ bg-gray-950"
     <div
       class="space-y-4 border-t border-slate-800 pt-4 text-slate-300 text-sm md:text-base leading-relaxed"
     >
-      <p class="text-slate-300 text-sm md:text-base">
+      <p>
         {description}
       </p>
-      <p class="text-slate-300 text-sm md:text-base">
-        {details}
-      </p>
+      {details && (
+        <p>
+          {details}
+        </p>
+      )}
     </div>
   </div>
 
@@ -49,7 +51,7 @@ bg-gray-950"
     <div class="w-full rounded-2xl overflow-hidden">
       <img
         src={image}
-        alt="Portal de Gestión de Emergencias CEINAR"
+        alt={name}
         loading="lazy"
         class="w-full h-auto object-contain block"
       />

@@ -50,7 +50,9 @@ const getImageUrl = (cod: string) => {
 ---
 
 <!-- show new data  -->
-<div class="mt-28 rounded-[2.5rem] p-8 md:p-12 lg:p-2 relative overflow-hidden">
+<div
+  class="mt-28 rounded-[2.5rem] py-8 md:py-12 lg:py-2 relative overflow-hidden"
+>
   <!-- Cabecera de la Sección -->
   <div
     class="flex flex-col lg:flex-row lg:justify-between lg:items-end gap-6 mb-16 relative z-10"
@@ -70,8 +72,8 @@ const getImageUrl = (cod: string) => {
   </div>
 
   <!-- Grid Principal de Proyectos -->
-  <div class="flex flex-col gap-y-14">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 relative z-10">
+  <div class="flex flex-col gap-y-16">
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 relative z-10">
       {
         CELL_PROJECTS.map((project) => (
           <MockupCell
